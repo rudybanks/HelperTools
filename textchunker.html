@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- A simple tool I wrote to help parse large amounts of text
+    I was developing https://vidsummaries.com using python and langchain
+    You can run this code in w3 schools or from your browser.
+    Enjoy - Rudy Banks - rudybanks.com; banxmedia.com
+    
+    -->
+    <title>Chunk Text</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Text Chunker 1.1</h1>
+          <label for="input-text">Paste your text here:</label>
+          <div class="input-group">
+            <textarea
+              class="form-control"
+              id="input-text"
+              oninput="updateChunkSizeLabel()"
+              rows="10"
+            ></textarea>
+            <div class="input-group-append">
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                onclick="clearText()"
+              >
+                Clear
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <label id="word-count-label"></label>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="chunk-size-slider">Chunk size:</label>
+            <input
+              type="range"
+              class="form-control-range"
+              id="chunk-size-slider"
+              min="100"
+              max="1000"
+              value="700"
+              step="100"
+              onchange="updateChunkSizeLabel()"
+            />
+            <span id="chunk-size-label">700 words</span>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <button class="btn btn-primary" onclick="chunkText()">
+            Chunk Text
+          </button>
+        </div>
+      </div>
+      <div class="row mt-3" id="output"></div>
+    </div>
+    <script>
+      function chunkText() {
+        const inputText = document.getElementById("input-text").value;
+        const words = inputText.split(" ");
+        const chunkSize = document.getElementById("chunk-size-slider").value;
+        const chunks = [];
+        let currentChunk = "";
+
+        for (let i = 0; i < words.length; i++) {
+          if (currentChunk.split(" ").length + 1 <= chunkSize) {
+            currentChunk += words[i] + " ";
+          } else {
+            chunks.push(currentChunk.trim());
+            currentChunk = words[i] + " ";
+          }
+        }
+
+        if (currentChunk !== "") {
+          chunks.push(currentChunk.trim());
+        }
+
+        const output = document.getElementById("output");
+        output.innerHTML = "";
+
+        for (let i = 0; i < chunks.length; i++) {
+          const chunkDiv = document.createElement("div");
+          chunkDiv.className = "col-md-4 mb-3";
+          chunkDiv.innerHTML = `
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Chunk ${i + 1}</h5>
+            <button class="btn btn-primary" onclick="copyText(${i})">Copy Text</button>
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="card-text">${chunks[i]}</p>
+              
+            </div>
+          </div>
+        </div>
+      `;
+          output.appendChild(chunkDiv);
+        }
+      }
+
+      function updateChunkSizeLabel() {
+        const sliderValue = document.getElementById("chunk-size-slider").value;
+        document.getElementById("chunk-size-label").textContent =
+          sliderValue + " words";
+
+        // Get the input text
+        const inputText = document.getElementById("input-text").value;
+
+        // Count the number of words in the input text
+        const wordCount = inputText
+          .split(/\s+/)
+          .filter((word) => word !== "").length;
+
+        // Display the word count
+        const wordCountLabel = document.getElementById("word-count-label");
+        wordCountLabel.textContent = `${wordCount} words`;
+
+        // Show/hide clear button based on input text
+        const clearButton = document.getElementById("clear-button");
+        if (inputText === "") {
+          clearButton.style.display = "none";
+        } else {
+          clearButton.style.display = "inline-block";
+        }
+      }
+
+      function clearText() {
+        document.getElementById("input-text").value = "";
+        updateChunkSizeLabel();
+      }
+
+      function copyText(chunkIndex) {
+        const chunks = document.querySelectorAll(".card-text");
+        const selectedChunk = chunks[chunkIndex];
+        const temp = document.createElement("textarea");
+        temp.value = selectedChunk.textContent;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+      }
+    </script>
+  </body>
+</html>
