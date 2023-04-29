@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stable Diffusion Prompt Generator - BanxMedia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    input[type=text], select {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #7a8bff, #ab61bf);
+    }
+  </style>
+
+<script>
+    document.oncontextmenu = function() {
+      return false;
+    };
+  </script>
+</head>
+<body>
+    
+    <div class="container" style="max-width: 600px;">
+    <p style="padding: 10px;"></p>
+    <h2 class="text-center" style="color:white;">Stable Diffusion Prompt Generator</h2>
+    <h4 class="text-center">The prompt auto updates on input changes</h4>
+    
+    <h6 class="text-center">Designed by: <a href="https://banxmedia.com/" style="color:inherit;text-decoration:none;">BanxMedia.com</a> - Rudy Banks</h6>
+
+    <form action="/" method="post">
+        <p style="padding: 20px;"></p>
+        <div class="mb-3">
+            <label for="medium" class="form-label"><strong>Medium ✒️</strong></label>
+            <select name="medium" id="medium" class="form-control" data-bs-toggle="dropdown">
+              <option value="Hyperrealistic/ultrarealistic/photorealistic">
+                Hyperrealistic/Ultrarealistic/Photorealistic
+              </option>
+              <option value="Oil painting">Oil Painting</option>
+              <option value="Watercolor painting">Watercolor Painting</option>
+              <option value="Expressionist painting">Expressionist Painting</option>
+              <option value="Graffiti style">Graffiti Style</option>
+              <option value="Chalk drawing">Chalk Drawing</option>
+              <option value="Pencil sketch">Pencil Sketch</option>
+              <option value="3D render">3D Render</option>
+              <option value="Abstract art">Abstract Art</option>
+              <option value="Surrealism">Surrealism</option>
+              <option value="Impressionism">Impressionism</option>
+              <option value="Japanese anime">Japanese Anime</option>
+              <option value="Pop art style">Pop Art Style</option>
+              <option value="Grunge style">Grunge Style</option>
+            </select>
+          </div>
+          
+
+        <p style="padding: 5px;"></p>
+        <div class="mb-3">
+            <label for="subject" class="form-label"><strong>Subject 🙂 </strong></label>
+            <input type="text" name="subject" id="subject" class="form-control"
+                placeholder="Enter Subject Info">
+        </div>
+        <p style="padding: 5px;"></p>
+        <div class="mb-3">
+            <label for="subject_details" class="form-label"><strong>Subject Details 👕</strong></label>
+            <input type="text" name="subject_details" id="subject_details" class="form-control"
+                placeholder="Enter Subject Details Info">
+        </div>
+        <p style="padding: 5px;"></p>
+        <div class="mb-3">
+            <label for="background" class="form-label"><strong>Background ⛰️</strong></label>
+            <input type="text" name="background" id="background" class="form-control"
+                placeholder="Enter Background Info">
+        </div>
+        <p style="padding: 5px;"></p>
+        <div class="mb-3">
+            <label for="background_details" class="form-label"><strong>Background Details 🌈</strong></label>
+            <input type="text" name="background_details" id="background_details" class="form-control"
+                placeholder="Enter Background Details Info">
+        </div>
+        
+        <p style="padding: 5px;"></p>
+           <div class="mb-3">
+        <label for="lighting" class="form-label"><strong>Lighting 💡</strong></label>
+        <select name="lighting" id="lighting" class="form-control">
+            <option value="Cinematic lighting">Cinematic lighting</option>
+            <option value="Soft lighting/softbox lighting">Soft lighting/softbox lighting</option>
+            <option value="Dappled lighting">Dappled lighting</option>
+            <option value="Bright lighting">Bright lighting</option>
+            <option value="Ambient lighting">Ambient lighting</option>
+            <option value="Flat lighting">Flat lighting</option>
+            <option value="Backlit">Backlit</option>
+            <option value="Volumetric lighting">Volumetric lighting</option>
+        </select>
+    </div>
+     
+    <p style="padding: 5px;"></p>
+
+    <div class="mb-3">
+        <label for="stylizer" class="form-label"><strong>Stylizer ⌨️</strong></label>
+        <select name="stylizer" id="stylizer" class="form-control">
+            <option value="Anything V3">Anything V3</option>
+            <option value="AbyssOrangeMix3 (AOM3)">AbyssOrangeMix3 (AOM3)</option>
+            <option value="Comprehensive Cinematic">Comprehensive Cinematic</option>
+            <option value="Deliberate">Deliberate</option>
+            <option value="Elldreths Retro Mix">Elldreths Retro Mix</option>
+            <option value="DreamShaper">DreamShaper</option>
+            <option value="MeinaMix">MeinaMix</option>
+            <option value="Modelshoot">Modelshoot</option>
+            <option value="OpenJourney">OpenJourney</option>
+            <option value="Protogen">Protogen</option>
+            <option value="Realistic Vision">Realistic Vision</option>
+            <option value="8k">8k</option>
+        </select>
+    </div>
+    <p style="padding: 5px;"></p>
+
+
+
+      <div class="mb-3">
+        <label for="prompt" class="form-label"><strong>Prompt 📜</strong></label>
+        <textarea name="prompt" id="prompt" rows="5" cols="30" class="form-control"></textarea>
+      </div>
+      
+      <button type="button" id="copyButton" class="btn btn-secondary" style="display:block; margin:0 auto; font-size:1.2em;">Copy to Clipboard 📋</button>
+      <p style="padding: 5px;"></p>
+      
+
+    </form>
+    <h6 class="text-center">Designed by: <a href="https://banxmedia.com/" style="color:inherit;text-decoration:none;">BanxMedia.com</a> - Rudy Banks</h6>
+    <p style="padding: 15px;"></p>
+  </div>
+
+<!-- update script here -->
+  <script>
+    const mediumInput = document.getElementById("medium");
+const subjectInput = document.getElementById("subject");
+const subject_detailsInput = document.getElementById("subject_details");
+const backgroundInput = document.getElementById("background");
+const background_detailsInput = document.getElementById("background_details");
+const lightingInput = document.getElementById("lighting");
+const stylizerInput = document.getElementById("stylizer");
+const promptTextArea = document.getElementById("prompt");
+const copyButton = document.getElementById("copyButton");
+
+mediumInput.addEventListener("input", prompt);
+subjectInput.addEventListener("input", prompt);
+subject_detailsInput.addEventListener("input", prompt);
+backgroundInput.addEventListener("input", prompt);
+background_detailsInput.addEventListener("input", prompt);
+lightingInput.addEventListener("input", prompt);
+stylizerInput.addEventListener("input", prompt);
+
+function prompt() {
+  const medium = mediumInput.value;
+  const subject = subjectInput.value;
+  const subject_details = subject_detailsInput.value;
+  const background = backgroundInput.value;
+  const background_details = background_detailsInput.value;
+  const lighting = lightingInput.value;
+  const stylizer = stylizerInput.value;
+
+  const prompt = `${medium},${subject},${subject_details},${background},${background_details},${lighting},${stylizer}`;
+
+  promptTextArea.value = prompt;
+}
+
+copyButton.addEventListener("click", function() {
+  promptTextArea.select();
+  document.execCommand("copy");
+  alert("Copied to clipboard!");
+});
+  </script>
+</body>
+</html>
