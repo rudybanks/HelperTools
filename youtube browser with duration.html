@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>YouTube Browser</title>
+<! Code by Rudy Banks @rudybanx - banxmedia.com -->
+  <!-- include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <br><br>
+    <h1>YouTube Browser</h1>
+    <br>
+    <div class="form-group">
+      
+      <div class="form-group row">
+        <div class="col-md-8">
+          <div class="form-outline w-100">
+            <input type="text" class="form-control" id="search-input" placeholder="Enter search query">
+            
+          </div>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary w-100" id="search-button" type="button" style="margin-left: 1px;">Search</button>
+          <br><br>
+        </div>
+      </div>
+      
+    </div>
+    <div class="scrollable-pane">
+      <div id="video-list"></div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="videoModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" id="videoPlayer" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+  <!-- include jQuery and Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script>
+    // YouTube API endpoint
+    var apiEndpoint = 'https://www.googleapis.com/youtube/v3/search';
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // API key (replace with your actual API key)
+    //
+    var apiKey = 'PASTE YOUTUBE API KEY HERE';
+    //
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    // Handle search button click event
+    $('#search-button').click(function() {
+      var searchQuery = $('#search-input').val();
+      if (searchQuery) {
+        searchVideos(searchQuery);
+      }
+    });
+
+    // Search for videos and display them on the page
+    function searchVideos(query) {
+      var requestData = {
+        part: 'snippet',
+        maxResults: 10,
+        q: query,
+        type: 'video',
+        order: 'date',
+        key: apiKey
+      };
+
+      $.get(apiEndpoint, requestData, function(response) {
+        var videoList = $('#video-list');
+        videoList.empty();
+
+        response.items.forEach(function(video) {
+    var videoElement = $('<div>').addClass('media mb-3');
+    var thumbnailUrl = video.snippet.thumbnails.default.url;
+    var thumbnail = $('<img>').addClass('mr-3').attr('src', thumbnailUrl);
+    var mediaBody = $('<div>').addClass('media-body').appendTo(videoElement);
+    var title = $('<h5>').addClass('mt-0').text(video.snippet.title).appendTo(mediaBody);
+    var description = $('<p>').text(video.snippet.description).appendTo(mediaBody);
+    var videoId = video.id.videoId;
+   
+    var videoLink = $('<a>').attr('data-toggle', 'modal')
+                         .attr('data-target', '#videoModal')
+                         .attr('style', 'text-decoration: none; color: black; background-color: #ffffff;')
+                         .attr('data-video-id', videoId)
+                         .append(thumbnail, mediaBody);
+                     
+                         
+
+    videoLink.hover(function() {
+      $(this).css('color', 'blue');
+    }, function() {
+      $(this).css('color', 'black');
+    });
+
+
+
+    videoElement.append(videoLink);
+    videoList.append(videoElement);
+
+    // Get video duration and add it to description
+    var videoDurationUrl = 'https://www.googleapis.com/youtube/v3/videos?id=' + videoId + '&part=contentDetails&key=' + apiKey;
+    $.get(videoDurationUrl, function(response) {
+        var duration = moment.duration(response.items[0].contentDetails.duration).asMinutes();
+        description.append('<br><small>Duration: ' + duration.toFixed(2) + ' minutes</small>');
+    });
+});
+    });
+  }
+
+
+// Handle click event on video links
+$(document).on('click', '[data-toggle="modal"]', function() {
+  var videoId = $(this).data('video-id');
+  var videoUrl = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+  var videoTitle = $(this).find('h5').text();
+  $('#videoModalLabel').text(videoTitle);
+  $('#videoPlayer').attr('src', videoUrl);
+});
+
+// Handle closing of the modal
+$('#videoModal').on('hidden.bs.modal', function() {
+  $('#videoPlayer').attr('src', '');
+});
+
+
+</script>
+</body>
+</html>
