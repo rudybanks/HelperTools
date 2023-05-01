@@ -16,9 +16,7 @@ I wrote this when I was debugging and testing Python ChatGPT LangChain
 ![image](https://user-images.githubusercontent.com/23158340/235324787-910490f4-b57a-4b64-afba-9e9af80f463b.png)
 <br><br>
 
-<h1 style="color:red; display:inline;">Youtube Browser Code</h1>
-
-
+<b>Youtube Browser Code</b>
 <br>
 Simple youtube browser code, html bootstrap css, javascript - Bring your own Youtube V3 Api Key
 <br><br>
