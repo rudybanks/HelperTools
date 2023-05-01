@@ -6,8 +6,8 @@ Simple html and javascript tools I use to debug, scrape and test ideas.
 Simple tool I use to format my Stable Diffusion Prompts
 <br><br>
 ![image](https://user-images.githubusercontent.com/23158340/235324668-3853df9f-8425-4206-b6d9-40f57c4ac495.png)
-<br>
-<br>
+<br><br><br>
+
 <b>Text Chunker</b> 
 <br>
 Tools for parsing large text blocks. 
