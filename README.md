@@ -23,4 +23,10 @@ Simple youtube browser code, html bootstrap css, javascript - Bring your own You
 ![image](https://user-images.githubusercontent.com/23158340/235550270-40e68d04-026b-48ce-85ac-270786a4cb47.png)
 <br><br>
 ![image](https://user-images.githubusercontent.com/23158340/235550393-5f701851-a349-4780-9e6d-5e3b68b7f72f.png)
+<br><br>
 
+<b>Twitter Advanced Search</b>
+<br>
+Simple Twitter Advanced Search URL params generator: html bootstrap css, javascript, jqery- Generate and paste
+<br><br>
+![twitter advanced](https://user-images.githubusercontent.com/23158340/236062523-e7e7ccb5-6c1d-46fd-b0ac-4351119bd3a8.JPG)
