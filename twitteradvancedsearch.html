@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter Advanced Search Generator</title>
+    <!-- Code by Rudy Banks - Here is a way to do advanced twitter search
+         Input the username and adjust your sort parameters copy either the url or the
+         advance code. Regards Rudy - banxmedia.com , rudybanks.com/profiles
+    -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Include Bootstrap Slider CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css"
+    />
+    <!-- Define the background gradient -->
+    <style>
+      body {
+        height: 150%;
+        margin: 0;
+        background: linear-gradient(
+          169deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(114, 9, 121, 1) 0%,
+          rgba(60, 58, 231, 1) 100%
+        );
+      }
+      .form-label {
+        color: #fff;
+        margin-right: 10px;
+      }
+
+      .container {
+        width: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col pb-5">
+          <h1 class="text-left my-5 text-white">
+            Twitter Advanced Search Generator
+          </h1>
+          <div class="form-group">
+            <label for="username" class="form-label">From (Username)</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              style="max-width: 400px"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="likes" class="form-label">Minimum Likes</label>
+            <input
+              type="text"
+              class="form-control"
+              id="likes"
+              data-slider-min="0"
+              data-slider-max="1000"
+              data-slider-step="5"
+              data-slider-value="0"
+            />
+          </div>
+          <div class="form-group">
+            <label for="retweets" class="form-label">Minimum Retweets</label>
+            <input
+              type="text"
+              class="form-control"
+              id="retweets"
+              data-slider-min="0"
+              data-slider-max="1000"
+              data-slider-step="5"
+              data-slider-value="0"
+            />
+          </div>
+          <div class="form-group">
+            <label for="replies" class="form-label">Minimum Replies</label>
+            <input
+              type="text"
+              class="form-control"
+              id="replies"
+              data-slider-min="0"
+              data-slider-max="1000"
+              data-slider-step="5"
+              data-slider-value="0"
+            />
+          </div>
+          <button type="button" class="btn btn-primary btn-lg" id="generate">
+            Generate Link
+          </button>
+
+          <br /><br />
+          <div class="form-group">
+            <label for="link" class="form-label"
+              >Twitter Advanced Search Link:</label
+            >
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                id="link"
+                readonly
+                style="max-width: 400px"
+              />
+              <button class="btn btn-warning" onclick="copyToClipboardurl()">
+                Copy
+              </button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="output" class="form-label">Output:</label>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                id="output"
+                readonly
+                style="max-width: 400px"
+              />
+              <button class="btn btn-warning" onclick="copyToClipboard()">
+                Copy
+              </button>
+            </div>
+          </div>
+          <br /><br /><br />
+          <div
+            style="
+              color: white;
+              text-align: left;
+              padding: 10px;
+              margin-bottom: 350px;
+            "
+          >
+            <p>
+              By <a href="https://Banxmedia.com">BanxMedia</a> - Rudy Banks
+              (2023)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Include Bootstrap Slider JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Initialize sliders
+        $("#likes").slider({
+          min: 0,
+          max: 1000,
+          step: 10,
+          value: 0,
+          tooltip: "show",
+          tooltip_position: "bottom",
+        });
+        $("#retweets").slider({
+          min: 0,
+          max: 1000,
+          step: 10,
+          value: 0,
+          tooltip: "show",
+          tooltip_position: "bottom",
+        });
+        $("#replies").slider({
+          min: 0,
+          max: 1000,
+          step: 10,
+          value: 0,
+          tooltip: "show",
+          tooltip_position: "bottom",
+        });
+
+        // Update slider values on input
+        $("#likes").on("input", function () {
+          $("#likes-value").text($(this).val());
+        });
+        $("#retweets").on("input", function () {
+          $("#retweets-value").text($(this).val());
+        });
+        $("#replies").on("input", function () {
+          $("#replies-value").text($(this).val());
+        });
+
+        $("#generate").on("click", function () {
+          generateLink();
+        });
+
+        // Generate link on button click
+        //$('#generate-link-btn').on('click', function() {
+        // Get values from form
+
+        function generateLink() {
+          const username = $("#username").val().trim();
+          const likes = $("#likes").val();
+          const retweets = $("#retweets").val();
+          const replies = $("#replies").val();
+
+          // Generate link and output code
+          const link = `https://twitter.com/search?q=(from%3A${username})%20min_faves%3A${likes}%20min_retweets%3A${retweets}%20min_replies%3A${replies}&src=typed_query`;
+          const output = `(from:${username}) min_replies:${replies} min_faves:${likes} min_retweets:${retweets}`;
+
+          // Set values of output fields
+          $("#link").val(link);
+          $("#output").val(output);
+        }
+      });
+    </script>
+
+    <script>
+      function copyToClipboard() {
+        var outputField = document.getElementById("output");
+        outputField.select();
+        document.execCommand("copy");
+      }
+    </script>
+    <script>
+      function copyToClipboardurl() {
+        var outputField = document.getElementById("link");
+        outputField.select();
+        document.execCommand("copy");
+      }
+    </script>
+  </body>
+</html>
