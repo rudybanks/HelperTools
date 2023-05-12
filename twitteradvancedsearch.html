@@ -6,6 +6,8 @@
          Input the username and adjust your sort parameters copy either the url or the
          advance code. Regards Rudy - banxmedia.com , rudybanks.com/profiles
     -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -18,7 +20,7 @@
     <!-- Define the background gradient -->
     <style>
       body {
-        height: 150%;
+        height: 100%;
         margin: 0;
         background: linear-gradient(
           169deg,
@@ -33,7 +35,21 @@
       }
 
       .container {
-        width: 50%;
+        width: 90%;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          width: 50%;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .container {
+          width: 40%;
+        }
       }
     </style>
   </head>
@@ -43,7 +59,7 @@
       <div class="row h-100 align-items-center">
         <div class="col pb-5">
           <h1 class="text-left my-5 text-white">
-            Twitter Advanced Search Generator
+            Twitter Advanced <br> Search Generator
           </h1>
           <div class="form-group">
             <label for="username" class="form-label">From (Username)</label>
@@ -137,10 +153,10 @@
               margin-bottom: 350px;
             "
           >
-            <p>
-              By <a href="https://Banxmedia.com">BanxMedia</a> - Rudy Banks
-              (2023)
-            </p>
+          <p>
+            By <a href="https://Banxmedia.com">BanxMedia</a> - Rudy Banks
+            (2023) <br> Follow me on Twitter: <a href="https://twitter.com/rudybanx">@rudybanx</a> <br> Check out my GitHub: <a href="https://github.com/rudybanks">rudybanks</a>
+          </p>
           </div>
         </div>
       </div>
