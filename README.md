@@ -31,3 +31,14 @@ Simple Twitter Advanced Search URL params generator: html bootstrap css, javascr
 <br><br>
 ![twitter advanced](https://user-images.githubusercontent.com/23158340/236062523-e7e7ccb5-6c1d-46fd-b0ac-4351119bd3a8.JPG)
 ![image](https://user-images.githubusercontent.com/23158340/236366363-5e30cfa0-8b9b-4e11-802d-f424ba3c3185.png)
+
+<br><br>
+
+<b>Twitter Advanced Search</b>
+<br>
+Simple Twitter Advanced Search URL params generator: html bootstrap css, javascript, jqery- Generate and paste
+<br><br>
+![twitter advanced](https://user-images.githubusercontent.com/23158340/236062523-e7e7ccb5-6c1d-46fd-b0ac-4351119bd3a8.JPG)
+![image](https://user-images.githubusercontent.com/23158340/236366363-5e30cfa0-8b9b-4e11-802d-f424ba3c3185.png)
+![image](https://github.com/rudybanks/HelperTools/assets/23158340/5d5d20da-7b56-404a-b712-caa835c67185)
+
