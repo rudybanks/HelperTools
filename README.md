@@ -34,11 +34,14 @@ Simple Twitter Advanced Search URL params generator: html bootstrap css, javascr
 
 <br><br>
 
-<b>Twitter Advanced Search</b>
+<b>Editable Content Extension</b>
 <br>
-Simple Twitter Advanced Search URL params generator: html bootstrap css, javascript, jqery- Generate and paste
+Simple Chrome Extension for copywriters or devs to edit live website text for mockups etc. Temporary changes only. Simply refresh.
+<br>
+To install 1. unzip the .zip file to a known folder then 2. manage extensions, and use dev mode, 3. load unpacked 4. nav to folder with files from .zip
 <br><br>
-![twitter advanced](https://user-images.githubusercontent.com/23158340/236062523-e7e7ccb5-6c1d-46fd-b0ac-4351119bd3a8.JPG)
-![image](https://user-images.githubusercontent.com/23158340/236366363-5e30cfa0-8b9b-4e11-802d-f424ba3c3185.png)
+![image](https://github.com/rudybanks/HelperTools/assets/23158340/bc45fc1f-d72d-4097-af21-c15b5b288e1f)
 ![image](https://github.com/rudybanks/HelperTools/assets/23158340/5d5d20da-7b56-404a-b712-caa835c67185)
+![image](https://github.com/rudybanks/HelperTools/assets/23158340/baf5b7fa-cc14-4f5e-bd10-b78a8e3baba8)
+
 
