@@ -31,3 +31,14 @@ Simple Twitter Advanced Search URL params generator: html bootstrap css, javascr
 <br><br>
 ![twitter advanced](https://user-images.githubusercontent.com/23158340/236062523-e7e7ccb5-6c1d-46fd-b0ac-4351119bd3a8.JPG)
 ![image](https://user-images.githubusercontent.com/23158340/236366363-5e30cfa0-8b9b-4e11-802d-f424ba3c3185.png)
+<br><br>
+<b>Webpage Content Editor (chrome extension</b>
+<br>
+Simple chrome extension to allow you to perform temporary text edits to any website.
+Great for copywriting and design changes. Unzip the .zip to any folder; manage chrome extensions, lo
+<br><br>
+![image](https://github.com/rudybanks/HelperTools/assets/23158340/d921fb90-30df-417f-8b99-724f8a55f8f0)
+![image](https://github.com/rudybanks/HelperTools/assets/23158340/fee46089-5882-41da-b228-aef3a4a40706)
+![image](https://github.com/rudybanks/HelperTools/assets/23158340/42eac4da-a720-4b8f-8898-33a38fdb29a2)
+![image](https://github.com/rudybanks/HelperTools/assets/23158340/df41aad0-c19b-4b57-9627-8db49cc1c79f)
+
