@@ -45,8 +45,9 @@ To install 1. unzip the .zip file to a known folder then 2. manage extensions, a
 <br><br>
 ![image](https://github.com/rudybanks/HelperTools/assets/23158340/bc45fc1f-d72d-4097-af21-c15b5b288e1f)
 ![image](https://github.com/rudybanks/HelperTools/assets/23158340/5d5d20da-7b56-404a-b712-caa835c67185)
-<br>
-Run the extension by clicking the pencil; whatever page is open, you can edit any text. Enjoy!
+<br><br>
+<strong>Run the extension by clicking the pencil; whatever page is open, you can edit any text. Enjoy!</strong>
+<br><br>
 ![image](https://github.com/rudybanks/HelperTools/assets/23158340/baf5b7fa-cc14-4f5e-bd10-b78a8e3baba8)
 
 
