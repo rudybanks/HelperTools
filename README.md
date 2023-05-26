@@ -41,7 +41,7 @@ Simple Chrome Extension for copywriters or devs to edit live website text for mo
 I used this code and turned into an extension - alternate option is use this code and make it a bookmark in browser
 javascript:document.body.contentEditable = 'true'; document.designMode='on'; void 0
 <br>
-To install 1. unzip the "page_edit_chrome_ext.zip" file to a known folder then 2. manage extensions, and use dev mode, 3. load unpacked 4. nav to folder with files from .zip
+To install 1. unzip the <b>"page_edit_chrome_ext_1.5.zip"</b> file to a known folder then 2. manage extensions, and use dev mode, 3. load unpacked 4. nav to folder with files from .zip
 <br><br>
 ![image](https://github.com/rudybanks/HelperTools/assets/23158340/bc45fc1f-d72d-4097-af21-c15b5b288e1f)
 ![image](https://github.com/rudybanks/HelperTools/assets/23158340/5d5d20da-7b56-404a-b712-caa835c67185)
